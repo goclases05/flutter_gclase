@@ -1,10 +1,9 @@
 
 import 'dart:async';
 
+import 'package:app_gclase/screen/Escritorio_screen/escritorio_screen.dart';
+import 'package:app_gclase/screen/eventos_screen/evento_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
-
-import 'escritorio_screen.dart';
 
 class DataDom extends StatefulWidget {
   const DataDom({ Key? key }) : super(key: key);
@@ -17,7 +16,7 @@ class DataDom extends StatefulWidget {
 class _DataDomState extends State<DataDom> {
   void ini(){
     Timer(
-      const Duration(seconds: 5),
+      const Duration(seconds: 4),
       ()=>Navigator.pushReplacement(context, 
         PageRouteBuilder(
           transitionDuration:const Duration(seconds: 1),
@@ -26,7 +25,7 @@ class _DataDomState extends State<DataDom> {
             return ScaleTransition(alignment: Alignment.center ,scale: animation,child: child,);
           },
           pageBuilder: (BuildContext context,Animation<double> animation,Animation<double> secanimation){
-                return const EscritorioScreen();
+                return EscritorioScreen();
           })
       )
     );
