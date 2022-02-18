@@ -39,6 +39,7 @@ dependencies:
   page_transition: ^2.0.5
   card_swiper: ^2.0.1
   badges: ^2.0.2
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_test:

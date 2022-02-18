@@ -1,5 +1,8 @@
 
+import 'package:app_gclase/model/student_model.dart';
+import 'package:app_gclase/widgets/card_itemList.dart';
 import 'package:app_gclase/widgets/card_swiper.dart';
+import 'package:app_gclase/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'components/Lista_cursos.dart';
@@ -19,8 +22,17 @@ class CursosScreen extends StatelessWidget {
 
     ];
 
-    const List<String> items=[
+    /*List<String> items=[
       'Matematicas','Artes Industriales','Lenguaje Maya','Ingles','Computación','Fisica Fundamental'
+    ];*/
+
+    List<Persona> items=[
+      Persona("Matematicas"),
+      Persona("Artes Industriales"),
+      Persona("Lenguaje Maya"),
+      Persona("Ingles"),
+      Persona("Computación"),
+      Persona("Fisica Fundamental")
     ];
 
     return SafeArea(
@@ -33,30 +45,52 @@ class CursosScreen extends StatelessWidget {
           Card(
             color: const Color.fromARGB(255, 249, 250, 250),
             elevation: 5,
-            shape: RoundedRectangleBorder(
+            /*shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            ),
+            ),*/
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
                 ListTile(
                   leading: Image.asset('assets/neze.png'),
                   title:const Text('Centro Educativo Personalizado Nezeel'),
+                  onTap: (){},
                 ),
               ],
             ),
           ),
-          const Padding(
-            padding:EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-            child: Text("Listado de Cursos",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.lightBlue
+          /*CardListItem(
+            color: Colors.orange.shade100,
+            child:const ListTile(
+              title: Text("Actividades Hoy/ Proximos 7 días",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+              ),
+            ),
+          ),*/
+          Container(
+            color: Colors.white70,
+            width: double.infinity,
+            child: const Padding(
+              padding:EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              child: Text("Listado de Cursos",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.lightBlue,
+                ),
               ),
             ),
           ),
-          Expanded(child:  const ListaCursosScreen(items))
+          Expanded(
+            child: Container(
+              color: Colors.white70,
+              child: ListaCursosScreen(items)
+            )
+          )
         ],
       ),
     );
